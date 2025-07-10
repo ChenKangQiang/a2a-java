@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.concurrent.Executor;
 
 /**
- * 简化的 A2A 服务器构建器，帮助用户快速创建 A2AServerRoute
+ * Simplified A2A server builder that helps users quickly create A2AServerRoute
  */
 public class A2AServerRouteBuilder {
 
@@ -38,7 +38,7 @@ public class A2AServerRouteBuilder {
     }
 
     /**
-     * 设置代理执行器
+     * set agentExecutor
      */
     public A2AServerRouteBuilder agentExecutor(AgentExecutor agentExecutor) {
         this.agentExecutor = agentExecutor;
@@ -51,7 +51,7 @@ public class A2AServerRouteBuilder {
     }
 
     /**
-     * 设置任务存储
+     * set taskStore
      */
     public A2AServerRouteBuilder taskStore(TaskStore taskStore) {
         this.taskStore = taskStore;
@@ -59,7 +59,7 @@ public class A2AServerRouteBuilder {
     }
 
     /**
-     * 设置队列管理器
+     * set queueManager
      */
     public A2AServerRouteBuilder queueManager(QueueManager queueManager) {
         this.queueManager = queueManager;
@@ -67,7 +67,7 @@ public class A2AServerRouteBuilder {
     }
 
     /**
-     * 设置推送通知器
+     * set pushNotifier
      */
     public A2AServerRouteBuilder pushNotifier(PushNotifier pushNotifier) {
         this.pushNotifier = pushNotifier;
@@ -75,7 +75,7 @@ public class A2AServerRouteBuilder {
     }
 
     /**
-     * 设置自定义执行器
+     * set executor
      */
     public A2AServerRouteBuilder executor(Executor executor) {
         this.executor = executor;
@@ -83,7 +83,7 @@ public class A2AServerRouteBuilder {
     }
 
     /**
-     * 构建完整的 A2AServerRoute
+     * build A2AServerRoute
      */
     public A2AServerRoute build() {
         RequestHandler requestHandler = new DefaultRequestHandler(agentExecutor, taskStore, queueManager, pushNotifier, executor);

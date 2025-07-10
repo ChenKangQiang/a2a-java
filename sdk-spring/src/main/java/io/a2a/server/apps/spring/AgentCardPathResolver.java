@@ -4,17 +4,15 @@ import io.a2a.spec.AgentCard;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * @Description:
- * @Author: chenkangqiang
- * @Date: 2025/7/9
+ * Agent card path resolver utility
  */
 public class AgentCardPathResolver {
 
     /**
-     * 解析agent的basePath
+     * Resolve the base path of the agent
      *
-     * @param agentCard
-     * @return
+     * @param agentCard：agentCard
+     * @return the resolved base path
      */
     public static String resolveBasePath(AgentCard agentCard) {
         String path = UriComponentsBuilder.fromUriString(agentCard.url())
