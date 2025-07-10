@@ -274,6 +274,7 @@
         <module>sdk-jakarta</module>
         <module>sdk-quarkus</module>
         <module>tck</module>
+        <module>sdk-spring</module>
         <module>examples/helloworld</module>
         <module>tests/server-common</module>
     </modules>
