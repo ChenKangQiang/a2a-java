@@ -229,7 +229,7 @@ public class A2AServerRoute implements InitializingBean {
     }
 
     private void registerMappings() throws NoSuchMethodException {
-        // 注册非流式请求处理端点
+        // register message/send endpoint
         RequestMappingInfo nonStreamingInfo = RequestMappingInfo
                 .paths(basePath)
                 .methods(org.springframework.web.bind.annotation.RequestMethod.POST)
@@ -240,7 +240,7 @@ public class A2AServerRoute implements InitializingBean {
         Method nonStreamingMethod = A2AServerRoute.class.getDeclaredMethod("handleNonStreamingRequests", String.class);
         requestMappingHandlerMapping.registerMapping(nonStreamingInfo, this, nonStreamingMethod);
 
-        // 注册流式请求处理端点
+        // register message/stream endpoint
         RequestMappingInfo streamingInfo = RequestMappingInfo
                 .paths(basePath)
                 .methods(org.springframework.web.bind.annotation.RequestMethod.POST)
@@ -251,7 +251,7 @@ public class A2AServerRoute implements InitializingBean {
         Method streamingMethod = A2AServerRoute.class.getDeclaredMethod("handleStreamingRequests", String.class);
         requestMappingHandlerMapping.registerMapping(streamingInfo, this, streamingMethod);
 
-        // 注册代理卡片端点
+        // register agent card endpoint
         RequestMappingInfo agentCardInfo = RequestMappingInfo
                 .paths(basePath + "/.well-known/agent.json")
                 .methods(org.springframework.web.bind.annotation.RequestMethod.GET)
@@ -261,7 +261,7 @@ public class A2AServerRoute implements InitializingBean {
         Method agentCardMethod = A2AServerRoute.class.getDeclaredMethod("getAgentCard");
         requestMappingHandlerMapping.registerMapping(agentCardInfo, this, agentCardMethod);
 
-        // 注册扩展代理卡片端点
+        // register extended agent card endpoint
         RequestMappingInfo extendedCardInfo = RequestMappingInfo
                 .paths(basePath + "/agent/authenticatedExtendedCard")
                 .methods(org.springframework.web.bind.annotation.RequestMethod.GET)
